@@ -6,8 +6,9 @@ import getPictures from '@salesforce/apex/PropertyController.getPictures';
 import ADDRESS_FIELD from '@salesforce/schema/Property__c.Address__c';
 import CITY_FIELD from '@salesforce/schema/Property__c.City__c';
 import DESCRIPTION_FIELD from '@salesforce/schema/Property__c.Description__c';
+import NAME_FIELD from '@salesforce/schema/Property__c.Name';
 
-const FIELDS = [ADDRESS_FIELD, CITY_FIELD, DESCRIPTION_FIELD];
+const FIELDS = [ADDRESS_FIELD, CITY_FIELD, DESCRIPTION_FIELD, NAME_FIELD];
 
 export default class PropertyCarousel extends LightningElement {
     @api recordId;
@@ -44,6 +45,10 @@ export default class PropertyCarousel extends LightningElement {
 
     get description() {
         return getFieldValue(this.property.data, DESCRIPTION_FIELD);
+    }
+
+    get name() {
+        return getFieldValue(this.property.data, NAME_FIELD);
     }
 
     get errors() {
