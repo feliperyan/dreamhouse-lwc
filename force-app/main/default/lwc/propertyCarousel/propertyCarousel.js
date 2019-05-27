@@ -11,12 +11,16 @@ import NAME_FIELD from '@salesforce/schema/Property__c.Name';
 const FIELDS = [ADDRESS_FIELD, CITY_FIELD, DESCRIPTION_FIELD, NAME_FIELD];
 
 export default class PropertyCarousel extends LightningElement {
+    // @api decorator let's parent components set the value of this attribute
+    // important in this case the the parent Record component will set
+    // the recordId for us!
     @api recordId;
 
     @track urls;
 
     pictures;
 
+    // Wiring the getRecord Lightning Data Service 
     @wire(getRecord, { recordId: '$recordId', fields: FIELDS })
     property;
 
@@ -35,6 +39,8 @@ export default class PropertyCarousel extends LightningElement {
         }
     }
 
+    // We can define getters associated with this class 
+    // for our html to call and render
     get address() {
         return getFieldValue(this.property.data, ADDRESS_FIELD);
     }
