@@ -25,6 +25,8 @@
     <tabs>standard-Contact</tabs>
     <tabs>Property__c</tabs>
     <tabs>Broker__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
     <tabs>standard-File</tabs>
     <tabs>Settings</tabs>
     <uiType>Lightning</uiType>
